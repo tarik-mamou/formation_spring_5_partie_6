@@ -1,5 +1,5 @@
 package spring.partie6.persistence.entities;// default package
-// Generated Sep 2, 2021 9:48:27 AM by Hibernate Tools 6.0.0.Alpha5
+// Generated Sep 3, 2021 4:22:08 PM by Hibernate Tools 6.0.0.Alpha5
 
 
 import java.util.Date;
@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name="PROFIL"
     ,schema="PUBLIC"
-    ,catalog="H2_DATABASE_LIBRAIRE"
+    ,catalog="H2_DATABASE_LIBRAIRE_AVEC_SECURITY"
 )
 public class Profil  implements java.io.Serializable {
 
@@ -42,7 +42,7 @@ public class Profil  implements java.io.Serializable {
        this.genre = genre;
     }
    
-    @Id
+     @Id
     @Column(name="ID", unique=true, nullable=false)
     public int getId() {
         return this.id;

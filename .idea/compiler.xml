@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="application" />
         <module name="persistence" />
+        <module name="rest" />
+        <module name="mvc" />
+        <module name="application" />
+        <module name="service" />
+        <module name="BCryptPasswordGenerator" />
       </profile>
     </annotationProcessing>
   </component>

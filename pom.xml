@@ -11,12 +11,17 @@
     <modules>
         <module>application</module>
         <module>persistence</module>
+        <module>mvc</module>
+        <module>service</module>
+        <module>rest</module>
+        <module>BCryptPasswordGenerator</module>
     </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <sprig.boot.version>2.5.4</sprig.boot.version>
+        <project.version>1.0-SNAPSHOT</project.version>
     </properties>
 
     <dependencyManagement>
@@ -32,15 +37,12 @@
     </dependencyManagement>
     <dependencies>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
 
-        <dependency>
+
+      <!--  <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
