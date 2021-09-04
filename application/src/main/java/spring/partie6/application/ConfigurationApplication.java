@@ -25,8 +25,9 @@ public class ConfigurationApplication {
     @Bean
     public CommandLineRunner demo(LibrairieService librairieService) {
         return (args) -> {
-            Iterable<Livre> livres = librairieService.findAllLivre();
-            System.out.println(livres.toString());
+            //Iterable<Livre> livres = librairieService.findAllLivre();
+            Livre livre = librairieService.saveLivre("la peste", "albert", "camus");
+            System.out.println(livre);
         };
     }
 

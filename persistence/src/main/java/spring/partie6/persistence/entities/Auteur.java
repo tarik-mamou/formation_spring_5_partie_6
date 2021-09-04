@@ -43,7 +43,7 @@ public class Auteur  implements java.io.Serializable {
        this.livres = livres;
     }
    
-     @Id
+    @Id
     @Column(name="ID", unique=true, nullable=false)
     public int getId() {
         return this.id;

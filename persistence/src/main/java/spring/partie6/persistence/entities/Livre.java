@@ -50,7 +50,7 @@ public class Livre  implements java.io.Serializable {
         this.id = id;
     }
 
-    @OneToOne()
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="ID_AUTEUR", nullable=false)
     public Auteur getAuteur() {
         return this.auteur;
@@ -60,7 +60,7 @@ public class Livre  implements java.io.Serializable {
         this.auteur = auteur;
     }
 
-    @OneToOne
+    @OneToOne (cascade = CascadeType.PERSIST)
     @JoinColumn(name="ID_PROFILE", nullable=false)
     public Profil getProfil() {
         return this.profil;
