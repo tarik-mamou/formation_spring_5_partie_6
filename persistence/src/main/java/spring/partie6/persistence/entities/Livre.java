@@ -118,6 +118,7 @@ public class Livre  implements java.io.Serializable {
     public void setPrix(int prix) {
         this.prix = prix;
     }
+
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "livres")
     public Set<User> users() {
         return this.users;
