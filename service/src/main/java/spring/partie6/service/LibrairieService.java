@@ -26,6 +26,9 @@ public class LibrairieService {
     @Autowired
     ActionRepository actionRepository;
 
+    public Livre chercherLivre(String nomLivre) {
+        return livreRepository.findByNom(nomLivre);
+    }
 
     public Iterable<Livre> findAllLivre() {
         return livreRepository.findAll();
