@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import spring.partie6.persistence.dao.security.UserRepository;
+import spring.partie6.persistence.dao.UserRepository;
 import spring.partie6.persistence.entities.User;
 import spring.partie6.persistence.entities.UserRole;
 

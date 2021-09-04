@@ -2,8 +2,7 @@ package spring.partie6.persistence.dao;
 
 import org.springframework.data.repository.CrudRepository;
 import spring.partie6.persistence.entities.Livre;
+import spring.partie6.persistence.entities.Stock;
 
-public interface LivreRepository extends CrudRepository<Livre, Long> {
-
-    Livre  findByNom(String nom);
+public interface StockRepository extends CrudRepository<Stock, Long> {
 }

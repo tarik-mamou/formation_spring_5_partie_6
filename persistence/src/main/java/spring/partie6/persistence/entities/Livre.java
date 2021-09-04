@@ -1,5 +1,5 @@
 package spring.partie6.persistence.entities;// default package
-// Generated Sep 3, 2021 4:22:08 PM by Hibernate Tools 6.0.0.Alpha5
+// Generated Sep 4, 2021 10:24:16 AM by Hibernate Tools 6.0.0.Alpha5
 
 
 import javax.persistence.*;
@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Table(name="LIVRE"
     ,schema="PUBLIC"
     ,catalog="H2_DATABASE_LIBRAIRE_AVEC_SECURITY"
+    , uniqueConstraints = @UniqueConstraint(columnNames="ID_STOCK") 
 )
 public class Livre  implements java.io.Serializable {
 
@@ -18,26 +19,31 @@ public class Livre  implements java.io.Serializable {
      private int id;
      private Auteur auteur;
      private Profil profil;
+     private Stock stock;
      private String nom;
      private String langue;
+     private int prix;
 
     public Livre() {
     }
 
 	
-    public Livre(int id, Auteur auteur, Profil profil, String nom) {
+    public Livre(int id, Auteur auteur, Profil profil, Stock stock, String nom, int prix) {
         this.id = id;
         this.auteur = auteur;
         this.profil = profil;
+        this.stock = stock;
         this.nom = nom;
+        this.prix = prix;
     }
-
-    public Livre(int id, Auteur auteur, Profil profil, String nom, String langue) {
+    public Livre(int id, Auteur auteur, Profil profil, Stock stock, String nom, String langue, int prix) {
        this.id = id;
        this.auteur = auteur;
        this.profil = profil;
+       this.stock = stock;
        this.nom = nom;
        this.langue = langue;
+       this.prix = prix;
     }
    
      @Id
@@ -50,7 +56,7 @@ public class Livre  implements java.io.Serializable {
         this.id = id;
     }
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinColumn(name="ID_AUTEUR", nullable=false)
     public Auteur getAuteur() {
         return this.auteur;
@@ -60,7 +66,7 @@ public class Livre  implements java.io.Serializable {
         this.auteur = auteur;
     }
 
-    @OneToOne (cascade = CascadeType.PERSIST)
+    @OneToOne (cascade = {CascadeType.PERSIST,CascadeType.MERGE})
     @JoinColumn(name="ID_PROFILE", nullable=false)
     public Profil getProfil() {
         return this.profil;
@@ -68,6 +74,16 @@ public class Livre  implements java.io.Serializable {
     
     public void setProfil(Profil profil) {
         this.profil = profil;
+    }
+
+    @OneToOne(fetch=FetchType.EAGER,cascade = {CascadeType.PERSIST,CascadeType.MERGE})
+    @JoinColumn(name="ID_STOCK", unique=true, nullable=false)
+    public Stock getStock() {
+        return this.stock;
+    }
+    
+    public void setStock(Stock stock) {
+        this.stock = stock;
     }
 
     
@@ -89,6 +105,18 @@ public class Livre  implements java.io.Serializable {
     public void setLangue(String langue) {
         this.langue = langue;
     }
+
+    
+    @Column(name="PRIX", nullable=false)
+    public int getPrix() {
+        return this.prix;
+    }
+    
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+
+
 
 
 }
