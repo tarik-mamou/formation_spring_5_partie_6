@@ -27,3 +27,5 @@
 /mvc/target/classes/spring/partie6/mvc/MvcApplication.class
 /mvc/target/
 /rest/target/
+/service/target/classes/spring/partie6/service/LivreRepository.class
+/service/target/classes/spring/partie6/service/StockService.class

@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spring.partie6.persistence.dao.LivreRepository;
 import spring.partie6.persistence.dao.StockRepository;
-import spring.partie6.persistence.dao.UserLivreRepository;
 import spring.partie6.persistence.dao.UserRepository;
 import spring.partie6.persistence.entities.*;
 ;import java.util.Date;
@@ -19,8 +18,8 @@ public class LibrairieService {
     @Autowired
     StockRepository stockRepository;
 
-    @Autowired
-    UserLivreRepository userLivreRepository;
+    /*@Autowired
+    UserLivreRepository userLivreRepository;*/
 
     @Autowired
     UserRepository userRepository;
@@ -69,11 +68,8 @@ public class LibrairieService {
             throw new Exception("user nom touvé");
 
         }
-        UserLivre userLivre=new UserLivre();
-        userLivre.setUser(user);
-        userLivre.setLivre(livre);
-        user.getUserLivres().add(userLivre);
-        userLivreRepository.save(userLivre);
+
+        user.getLivres().add(livre);
         userRepository.save(user);
     }
 
