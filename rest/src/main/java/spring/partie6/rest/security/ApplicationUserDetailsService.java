@@ -7,8 +7,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import spring.partie6.persistence.dao.UserRepository;
-import spring.partie6.persistence.entities.User;
+import spring.partie6.persistence.dao.ApplicationUserRepository;
+import spring.partie6.persistence.entities.ApplicationUser;
 import spring.partie6.persistence.entities.UserRole;
 
 import java.util.Collection;
@@ -18,11 +18,11 @@ import java.util.HashSet;
 public class ApplicationUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userRepository;
+    private ApplicationUserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        User user = userRepository.findByUsername(username);
+        ApplicationUser user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }
@@ -31,7 +31,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 
     private ApplicationUserDetails loadUserFromDB(String username) throws UsernameNotFoundException {
 
-        User user = userRepository.findByUsername(username);
+        ApplicationUser user = userRepository.findByUsername(username);
         if (user==null){
             throw new UsernameNotFoundException(username);
         }
@@ -42,7 +42,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
         }
 
 
-        return new ApplicationUserDetails(user.getMail(),user.getPrenom() +" "+ user.getNom(),user.getUsername(),user.getPassword(),user.isActif(),grantedAuthoritySet);
+        return new ApplicationUserDetails(user.getMail(),user.getNom(),user.getUsername(),user.getPassword(),user.isActif(),grantedAuthoritySet);
 
     }
 }

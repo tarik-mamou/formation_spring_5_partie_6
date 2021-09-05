@@ -1,10 +1,5 @@
 package spring.partie6.rest.dto;
 
-import spring.partie6.persistence.entities.User;
-
-import java.util.HashSet;
-import java.util.Set;
-
 public class LivreDTO {
 
     String nomLivre;

@@ -1,7 +1,6 @@
 package spring.partie6.rest.mapper;
 
 import spring.partie6.persistence.entities.Livre;
-import spring.partie6.persistence.entities.User;
 import spring.partie6.rest.dto.LivreDTO;
 
 import java.util.ArrayList;

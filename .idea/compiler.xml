@@ -11,10 +11,8 @@
         <module name="mvc" />
         <module name="application" />
         <module name="service" />
+        <module name="BCryptPasswordGenerator" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="BCryptPasswordGenerator" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
