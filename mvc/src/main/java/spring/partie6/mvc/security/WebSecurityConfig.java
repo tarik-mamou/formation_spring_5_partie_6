@@ -14,7 +14,6 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -35,9 +34,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.permitAll();
     }
 
-    @Bean
-    @Primary
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+
 }
