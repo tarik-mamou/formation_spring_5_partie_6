@@ -64,7 +64,7 @@ public class ConfigurationApplication {
            // librairieService.creerEtAcheterLivreAvecException("user_name_1","livre8","nomauteur8",
              //       "prenomAuteur8",77);
 
-            librairieService.creerEtLivreEtCheckedEx("livre9","auteur9","nomauteur9",99);
+            //librairieService.creerEtLivreEtCheckedEx("livre9","auteur9","nomauteur9",99);
 
 
           // librairieService.creerEtAcheterLivreAvecException(3,3,3,3,"livre 3", "username_3","nom_auteur_3","prenom_auteur_3",50);
@@ -76,6 +76,10 @@ public class ConfigurationApplication {
             //librairieService.creerEtLivreEtNonCheckedEx(8, 8, 8, 8, "livre 8", "username_3", "nom_auteur_8", "prenom_auteur_8", 60);
             //livres.forEach(livre -> System.out.println(livre.getNom()));
 
+        //    librairieService.creerEtLivreEtCheckedEx("livre9","auteur9","nomauteur9",99);
+
+            //librairieService.creerEtAcheterLivreDeuxServices("username_1", "livre 19", "nom_auteur_11","prenom_auteur_11",50);
+            librairieService.creerEtLoguerAction("user_name_1", "livre 22", "nom_auteur_11","prenom_auteur_11",50);
 
 
 

@@ -5,6 +5,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spring.partie6.persistence.dao.ActionRepository;
@@ -36,6 +37,9 @@ public class LibrairieService {
 
     @Autowired
     ActionRepository actionRepository;
+
+    @Autowired
+    LibrarieServiceHelper librarieServiceHelper;
 
     @Secured("admin")
     public Livre chercherLivre(String nomLivre) {
@@ -147,12 +151,13 @@ public class LibrairieService {
 
     }
 
+    @Transactional
     public ApplicationUser acheterLivreSansVérificationAvecException(String nomLivre, String nomUser) throws Exception {
 
 
-        ApplicationUser applicationUser= acheterLivreSansVérification(nomLivre, nomUser);
+        ApplicationUser applicationUser = acheterLivreSansVérification(nomLivre, nomUser);
         int number = 5 / 0;
-        return  applicationUser;
+        return applicationUser;
     }
 
 
@@ -166,7 +171,7 @@ public class LibrairieService {
     }
 
     // le livre est créé car l exception est checked
-    @Transactional( rollbackFor  = {CustomException.class})
+    @Transactional(rollbackFor = {CustomException.class})
     public void creerEtLivreEtCheckedEx(String nomLivre, String nomAuteur, String
             prenomAuteur, int nombreStock) throws Exception {
         createLivre(nomLivre, nomAuteur, prenomAuteur, 30);
@@ -179,5 +184,18 @@ public class LibrairieService {
             prenomAuteur, int nombreStock) {
         createLivre(nomLivre, nomAuteur, prenomAuteur, 30);
         throw new RuntimeException("test rollback Exception");
+    }
+
+     @Transactional
+    public void creerEtAcheterLivreDeuxServices(String nomUser, String nomLivre, String nomAuteur, String prenomAuteur, int nombreStock) throws Exception {
+        createLivre(nomLivre, nomAuteur, prenomAuteur, nombreStock);
+        librarieServiceHelper.acheterLivre(nomLivre, nomUser);
+    }
+
+    @Transactional
+    public void creerEtLoguerAction(String nomUser, String nomLivre, String nomAuteur, String prenomAuteur, int nombreStock) throws Exception {
+        librarieServiceHelper.loggerAction(nomLivre, nomUser);
+        createLivre(nomLivre, nomAuteur, prenomAuteur, nombreStock);
+
     }
 }
