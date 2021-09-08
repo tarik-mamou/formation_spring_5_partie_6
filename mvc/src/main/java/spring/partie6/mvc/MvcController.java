@@ -48,4 +48,9 @@ public class MvcController {
         return "livres";
     }
 
+    @RequestMapping(value = "/livres2")
+    public String livres() {
+        return "livres2";
+    }
+
 }

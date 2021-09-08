@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>livres</title>
+</head>
+<body>
+<form action="#" th:action="@{/livres}" th:object="${livreCommand}" method="post">
+    <table border="1">
+        <tr>
+            <td>Nom livre</td>
+            <td><input type="text" th:field="*{nomlivre}" /></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="soumettre" /></td>
+        </tr>
+    </table>
+</form>
+<table>
+    <thead>
+    <tr>
+        <th> Title </th>
+  <!--      <th> Author </th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${listeLivres.empty}">
+        <td colspan="2"> pas de livres trouvés </td>
+    </tr>
+    <tr th:each="livre : ${listeLivres}">
+        <td><span th:text="${livre.nom}"> nom </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

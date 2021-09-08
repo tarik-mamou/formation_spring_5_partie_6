@@ -38,7 +38,7 @@ public class ApplicationUserDetailsService implements UserDetailsService {
         Collection<GrantedAuthority> grantedAuthoritySet = new HashSet<>();
 
         for (UserRole userRole: user.getUserRoles()){
-            grantedAuthoritySet.add(new SimpleGrantedAuthority(userRole.getRole().getNom()));
+            grantedAuthoritySet.add(new SimpleGrantedAuthority("ROLE_"+userRole.getRole().getNom()));
         }
 
 

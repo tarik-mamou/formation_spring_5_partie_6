@@ -19,8 +19,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/home").permitAll()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/livres").hasRole("utilisateur")
+                .antMatchers("/livres2").hasRole("admin")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin(withDefaults())
@@ -34,5 +35,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.permitAll();
     }
 
-
+    @Bean
+    @Primary
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }
