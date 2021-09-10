@@ -1,0 +1,14 @@
+package spring.partie6.mbeans;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+@SpringBootApplication
+public class MbeansApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(MbeansApplication.class, args);
+    }
+
+}

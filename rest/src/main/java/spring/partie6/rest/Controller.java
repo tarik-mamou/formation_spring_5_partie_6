@@ -31,7 +31,6 @@ public class Controller {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<LivreDTO> livresRest(@RequestParam(value = "nomLivre", required = false) String name) {
         Livre livre = librairieService.chercherLivre(name);
-
         if(livre!= null){
             LivreDTO  livreDTO=LivreMapper.convertToDto(livre);
             return new ResponseEntity<>(
@@ -42,7 +41,7 @@ public class Controller {
     }
 
     @GetMapping("/livresRest/all")
-    public Iterable<LivreDTO> livresRestAll() {
+    public Iterable<LivreDTO> livresRestAll()  {
         Iterable<Livre> livres = librairieService.findAllLivre();
         Iterable<LivreDTO> livreDTOs = LivreMapper.convertToDtos(livres);
         return livreDTOs;

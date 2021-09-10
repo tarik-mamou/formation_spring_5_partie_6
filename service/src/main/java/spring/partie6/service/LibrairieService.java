@@ -47,7 +47,7 @@ public class LibrairieService {
     }
 
     @Secured("ROLE_utilisateur")
-    public Iterable<Livre> findAllLivre() {
+    public Iterable<Livre> findAllLivre()  {
         return livreRepository.findAll();
     }
 

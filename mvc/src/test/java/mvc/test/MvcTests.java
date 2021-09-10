@@ -20,10 +20,11 @@ import spring.partie6.persistence.dao.ApplicationUserRepository;
 import spring.partie6.persistence.dao.LivreRepository;
 import spring.partie6.persistence.dao.StockRepository;
 import spring.partie6.service.LibrairieService;
+import spring.partie6.service.LibrarieServiceHelper;
 
 
 @WebMvcTest(MvcController.class)
-@ContextConfiguration(classes = {ConfigurationMvc.class, WebSecurityConfig.class,MvcController.class,LibrairieService.class})
+@ContextConfiguration(classes = {ConfigurationMvc.class, WebSecurityConfig.class,MvcController.class,LibrairieService.class, LibrarieServiceHelper.class})
 @ActiveProfiles("default")
 public class MvcTests {
 
